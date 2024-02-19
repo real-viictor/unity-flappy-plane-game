@@ -24,18 +24,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Subir();
+        LimitarVelocidade();
+    }
+
+    //Mandando o Player subir se o espaço for apertado
+    private void Subir()
+    {
         //Checando se espaço está pressionado
-        isSpacePressed = Input.GetKeyDown(KeyCode.Space);  
+        isSpacePressed = Input.GetKeyDown(KeyCode.Space);
 
         //Executando pulo se espaço for pressionado
         if (isSpacePressed)
-        {   
+        {
             //Definindo velocidade do rigidbody para cima e multiplicando pela velocidade determinada ao player
             PlayerRB.velocity = Vector2.up * playerSpeed;
         }
+    }
 
-        //Limitando a velocidade de queda do Player
-        if(PlayerRB.velocity.y < -playerSpeed)
+    //Limitando a velocidade de queda do Player
+    private void LimitarVelocidade()
+    {
+        if (PlayerRB.velocity.y < -playerSpeed)
         {
             PlayerRB.velocity = Vector2.down * playerSpeed;
         }
