@@ -50,4 +50,10 @@ public class PlayerController : MonoBehaviour
             PlayerRB.velocity = Vector2.down * playerSpeed;
         }
     }
+
+    //Configurando ação de colisão do Player com o obstáculo
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
 }
