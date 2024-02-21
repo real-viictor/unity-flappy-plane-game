@@ -14,13 +14,13 @@ public class ObstacleController : MonoBehaviour
         transform.position = new Vector3(10f, Random.Range(-2.25f, 0.9f), 0f); 
 
         //Determinando velocidade do obstáculo e multiplicando por DeltaTime para ajustar a velocidade para todos os frames do jogo
-        obstacleSpeed = 0.15f * Time.deltaTime;
+        obstacleSpeed = 0.15f;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Determinando que o objeto se mova para a esquerda
-        transform.position += Vector3.left * obstacleSpeed; 
+        transform.position += Vector3.left * obstacleSpeed * Time.deltaTime; 
     }
 }
