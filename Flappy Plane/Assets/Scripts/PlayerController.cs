@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
     //Configurando ação de colisão do Player com o obstáculo
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        //Após colidir, resete a Scene
+        SceneManager.LoadScene("Main");
     }
 }
