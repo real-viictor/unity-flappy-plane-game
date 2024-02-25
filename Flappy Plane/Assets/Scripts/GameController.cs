@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     //Criando variável de timer e definindo valor para ele
     private float timer = 1f;
+    [SerializeField] private GameObject obstacle;
 
     // Start is called before the first frame update
     void Start()
