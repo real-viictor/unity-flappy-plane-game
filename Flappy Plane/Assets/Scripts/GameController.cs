@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
-    //Criando variável que controla o timer e o valor que o timer receberá como tempo
-    private float timer;
+    //Criando variável que controla o timer e atribuindo intervalo inicial do timer
+    private float timer = 2f;
+
+    //Criando variável de controle de pontos
+    private float points = 0f;
+
+    //Criando variável que recebe o GameObject da montanha
     [SerializeField] private GameObject obstacle;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Atribuindo intervalo inicial do timer
-        timer = 2f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         CriarMontanhas();
+        AdicionarPontos();
     }
 
     //Criando montanhas baseado num timer
@@ -30,8 +36,19 @@ public class GameController : MonoBehaviour
         //Se o valor do timer for menor ou igual a zero, instancie a montanha e redefina o timer
         if (timer <= 0)
         {
+            //Redefinindo valor aleatório para o timer
             timer = Random.Range(1,3);
+            //Instanciando montanha
             Instantiate(obstacle);
         }
+    }
+
+    void AdicionarPontos()
+    {
+        //Adicionando pontos ao jogador por tempo
+        points += Time.deltaTime;
+        Mathf.Round(points);
+
+        Debug.Log(points);
     }
 }
