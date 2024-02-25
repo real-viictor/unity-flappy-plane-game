@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     //Criando variável de timer e definindo valor para ele
-    private float timer = 1f;
+    private float timer = 2f;
     [SerializeField] private GameObject obstacle;
 
     // Start is called before the first frame update
@@ -17,11 +17,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AtivarTimer();
+        CriarMontanhas();
     }
 
     //Dando um trigger para o Timer
-    void AtivarTimer()
+    void CriarMontanhas()
     {
         timer -= Time.deltaTime;
         
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         {
             //Caso contrário, redefina o timer e execute uma ação
             timer = 1f;
-            Debug.Log("oi");
+            Instantiate(obstacle);
         }
     }
 }

@@ -21,6 +21,11 @@ public class ObstacleController : MonoBehaviour
     void Update()
     {
         //Determinando que o objeto se mova para a esquerda
-        transform.position += Vector3.left * obstacleSpeed * Time.deltaTime; 
+        transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;
+
+        if (transform.position.x < -11.5f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
