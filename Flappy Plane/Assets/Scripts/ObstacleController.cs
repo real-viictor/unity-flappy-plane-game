@@ -23,6 +23,7 @@ public class ObstacleController : MonoBehaviour
         //Determinando que o objeto se mova para a esquerda
         transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;
 
+        //Destruindo o obstáculo após sair da tela
         if (transform.position.x < -11.5f)
         {
             Destroy(this.gameObject);
