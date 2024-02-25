@@ -22,12 +22,9 @@ public class GameController : MonoBehaviour
     //Dando um trigger para o Timer
     void AtivarTimer()
     {
-        if (timer > 0f)
-        {
-            //Se timer não for 0 ou menor, reduza o valor do timer por deltaTime (O tempo que se passou entre um frame e outro)
-            //Esta operação faz com que cada 1f seja 1 segundo, portanto 2f = 2s, 3f = 3s etc...
-            timer -= Time.deltaTime;
-        } else
+        timer -= Time.deltaTime;
+        
+        if (timer <= 0)
         {
             //Caso contrário, redefina o timer e execute uma ação
             timer = 1f;
