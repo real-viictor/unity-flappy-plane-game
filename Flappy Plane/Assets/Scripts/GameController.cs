@@ -48,6 +48,6 @@ public class GameController : MonoBehaviour
     {
         //Adicionando pontos ao jogador por tempo
         points += Time.deltaTime;
-        pointsDisplay.text = Mathf.Round(points).ToString();
+        pointsDisplay.text = "Pontos: " + Mathf.Round(points).ToString();
     }
 }
