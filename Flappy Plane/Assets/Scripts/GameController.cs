@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     //Criando variável que recebe o GameObject da montanha
     [SerializeField] private GameObject obstacle;
+    [SerializeField] private Text pointsDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,6 @@ public class GameController : MonoBehaviour
     {
         //Adicionando pontos ao jogador por tempo
         points += Time.deltaTime;
-        Debug.Log(Mathf.Round(points));
+        pointsDisplay.text = Mathf.Round(points).ToString();
     }
 }
