@@ -58,12 +58,10 @@ public class GameController : MonoBehaviour
 
     void AdicionarLevel()
     {
-        if(points > pointsToUpLevel)
+        if(points >= pointsToUpLevel)
         {
             gameLevel++;
             pointsToUpLevel*=2;
         }
-
-        Debug.Log(gameLevel);
     }
 }
