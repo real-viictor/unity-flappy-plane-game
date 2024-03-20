@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text pointsDisplay;
 
     //Criando variáveis de controle de level
-    private int gameLevel;
+    private int gameLevel = 1;
     [SerializeField] private int pointsToUpLevel = 10;
 
     // Start is called before the first frame update
@@ -58,8 +58,12 @@ public class GameController : MonoBehaviour
 
     void AdicionarLevel()
     {
-        //Dividindo o total de pontos do jogador para determinar o level
-        gameLevel = (Mathf.CeilToInt(points) / pointsToUpLevel) + 1;
+        if(points > pointsToUpLevel)
+        {
+            gameLevel++;
+            pointsToUpLevel*=2;
+        }
+
         Debug.Log(gameLevel);
     }
 }
