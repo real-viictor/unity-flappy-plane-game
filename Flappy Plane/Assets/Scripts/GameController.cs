@@ -13,7 +13,10 @@ public class GameController : MonoBehaviour
 
     //Criando variável que recebe o GameObject da montanha
     [SerializeField] private GameObject obstacle;
+
+    //Criando variáveis de display na interface
     [SerializeField] private Text pointsDisplay;
+    [SerializeField] private Text levelDisplay;
 
     //Criando variáveis de controle de level
     private int gameLevel = 1;
@@ -22,7 +25,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Exibindo level do jogo na tela
+        levelDisplay.text = "Level " + gameLevel.ToString();
     }
 
     // Update is called once per frame
@@ -53,6 +57,8 @@ public class GameController : MonoBehaviour
     {
         //Adicionando pontos ao jogador por tempo
         points += Time.deltaTime;
+
+        //Exibindo pontos na tela
         pointsDisplay.text = "Pontos: " + Mathf.Round(points).ToString();
     }
 
@@ -62,6 +68,9 @@ public class GameController : MonoBehaviour
         {
             gameLevel++;
             pointsToUpLevel*=2;
+
+            //Alterando o level do jogo na tela quando o usuário passa de nível
+            levelDisplay.text = "Level " + gameLevel.ToString();
         }
     }
 }
