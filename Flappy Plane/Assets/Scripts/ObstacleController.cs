@@ -20,24 +20,28 @@ public class ObstacleController : MonoBehaviour
 
         //Localizando objeto do GameController na cena via código
         game = FindObjectOfType<GameController>();
-
-        //Aumentando a velocidade das montanhas baseado no nível do jogo
-        obstacleSpeed = 5f * currentLevel;
     }
 
     // Update is called once per frame
     void Update()
     {
+        MoverObstaculo();
+    }
+
+    void MoverObstaculo()
+    {
         currentLevel = game.getLevel();
+
+        //Aumentando a velocidade das montanhas baseado no nível do jogo
+        obstacleSpeed = 5f * currentLevel;
 
         //Determinando que o objeto se mova para a esquerda
         transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;
 
-        //Destruindo o obstáculo após sair da tela
+        //Destruindo o obstáculo após sair da tela pela esquerda
         if (transform.position.x < -11.5f)
         {
             Destroy(this.gameObject);
         }
-
     }
 }
