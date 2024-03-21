@@ -34,5 +34,7 @@ public class ObstacleController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        Debug.Log(game.getLevel());
     }
 }
