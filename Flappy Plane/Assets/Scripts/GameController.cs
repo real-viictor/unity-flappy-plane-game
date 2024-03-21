@@ -73,4 +73,9 @@ public class GameController : MonoBehaviour
             levelDisplay.text = "Level " + gameLevel.ToString();
         }
     }
+
+    public int getLevel()
+    {
+        return gameLevel;
+    }
 }

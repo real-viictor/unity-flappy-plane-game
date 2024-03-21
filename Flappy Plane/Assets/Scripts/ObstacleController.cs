@@ -8,6 +8,8 @@ public class ObstacleController : MonoBehaviour
 {
     private float obstacleSpeed;
 
+    private GameController game;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,9 @@ public class ObstacleController : MonoBehaviour
 
         //Determinando velocidade do obstáculo e multiplicando por DeltaTime para ajustar a velocidade para todos os frames do jogo
         obstacleSpeed = 5f;
+
+        //Localizando objeto do GameController na cena via código
+        game = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
