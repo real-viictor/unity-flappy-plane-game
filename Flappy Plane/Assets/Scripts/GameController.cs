@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
         if (timer <= 0)
         {
             //Redefinindo valor aleatório para o timer
-            timer = Random.Range(1, 3);
+            timer = Random.Range(1/gameLevel, 3);
             
             //Instanciando montanha
             Instantiate(obstacle);
