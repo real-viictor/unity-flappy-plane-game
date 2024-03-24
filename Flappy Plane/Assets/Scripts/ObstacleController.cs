@@ -36,8 +36,6 @@ public class ObstacleController : MonoBehaviour
         //Incrementando velocidade da montanha baseado na dificuldade do jogo
         obstacleSpeed = 4f + game.getLevel();
 
-        Debug.Log(obstacleSpeed);
-
         //Destruindo o obstáculo após sair da tela pela esquerda
         if (transform.position.x < -11.5f)
         {

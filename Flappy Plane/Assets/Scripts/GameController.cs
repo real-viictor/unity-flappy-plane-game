@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     //Criando variável que controla o timer e atribuindo intervalo inicial do timer
-    private float timer = 2f;
+    [SerializeField] private float timer = 2f;
 
     //Criando variável de controle de pontos
     private float points = 0f;
@@ -47,7 +47,8 @@ public class GameController : MonoBehaviour
         if (timer <= 0)
         {
             //Redefinindo valor aleatório para o timer
-            timer = Random.Range(1/gameLevel, 3);
+            timer = Random.Range(1, 3);
+            
             
             //Instanciando montanha
             Instantiate(obstacle);

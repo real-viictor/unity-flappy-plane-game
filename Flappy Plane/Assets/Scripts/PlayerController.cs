@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         Subir();
         LimitarVelocidade();
+        Morrer();
     }
 
     //Mandando o Player subir se o espaço for apertado
@@ -49,6 +50,15 @@ public class PlayerController : MonoBehaviour
         if (PlayerRB.velocity.y < -playerSpeed)
         {
             PlayerRB.velocity = Vector2.down * playerSpeed;
+        }
+    }
+
+    private void Morrer()
+    {
+        //Se o player sair do range da tela, reinicie o jogo
+        if (transform.position.y > 5.5f || transform.position.y < -5.5f)
+        {
+            SceneManager.LoadScene("Main");
         }
     }
 
