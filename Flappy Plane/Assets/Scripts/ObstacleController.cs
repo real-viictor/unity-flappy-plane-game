@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class ObstacleController : MonoBehaviour
 {
-    private float obstacleSpeed;
+    //Definindo velocidade base da montanha
+    private float obstacleSpeed = 4f;
 
     private GameController game;
 
@@ -16,10 +17,16 @@ public class ObstacleController : MonoBehaviour
     void Start()
     {
         //Definindo posição inicial do obstáculo, o colocando fora da tela e determinando altura
-        transform.position = new Vector3(10f, Random.Range(-2.25f, 0.9f), 0f); 
+        transform.position = new Vector3(10f, Random.Range(-2.25f, 0.9f), 0f);
 
         //Localizando objeto do GameController na cena via código
         game = FindObjectOfType<GameController>();
+
+        //Coletando nível atual do jogador
+        currentLevel = game.getLevel();
+
+        //Incrementando velocidade da montanha baseado na dificuldade do jogo
+        obstacleSpeed += currentLevel;
     }
 
     // Update is called once per frame
@@ -30,11 +37,6 @@ public class ObstacleController : MonoBehaviour
 
     void MoverObstaculo()
     {
-        currentLevel = game.getLevel();
-
-        //Aumentando a velocidade das montanhas baseado no nível do jogo
-        obstacleSpeed = 5f * currentLevel;
-
         //Determinando que o objeto se mova para a esquerda
         transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;
 

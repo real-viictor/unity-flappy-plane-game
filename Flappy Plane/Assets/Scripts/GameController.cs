@@ -47,7 +47,8 @@ public class GameController : MonoBehaviour
         if (timer <= 0)
         {
             //Redefinindo valor aleatório para o timer
-            timer = Random.Range(1,3);
+            timer = Random.Range(1, 3);
+            
             //Instanciando montanha
             Instantiate(obstacle);
         }
@@ -66,7 +67,10 @@ public class GameController : MonoBehaviour
     {
         if(points >= pointsToUpLevel)
         {
+            //Subindo nível do jogador em 1
             gameLevel++;
+
+            //Dobrando o total de pontos necessário para passar de nível
             pointsToUpLevel*=2;
 
             //Alterando o level do jogo na tela quando o usuário passa de nível
