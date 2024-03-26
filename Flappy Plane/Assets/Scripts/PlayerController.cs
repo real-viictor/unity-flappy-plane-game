@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     //Criando uma variável para acessar as propriedades de RigidBody
     private Rigidbody2D PlayerRB;
 
+    [SerializeField] private GameObject puff;
+
     private bool isSpacePressed;
     private float playerSpeed;
 
@@ -41,6 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             //Definindo velocidade do rigidbody para cima e multiplicando pela velocidade determinada ao player
             PlayerRB.velocity = Vector2.up * playerSpeed;
+
+            //Criando o puff ao pular
+            Instantiate(puff);
+            puff.transform.position = transform.position;
         }
     }
 
