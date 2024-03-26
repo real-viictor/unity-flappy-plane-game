@@ -45,8 +45,9 @@ public class PlayerController : MonoBehaviour
             PlayerRB.velocity = Vector2.up * playerSpeed;
 
             //Criando o puff ao pular
-            Instantiate(puff);
-            puff.transform.position = transform.position;
+            GameObject createdPuff = Instantiate(puff, transform.position, Quaternion.identity);
+
+            Destroy(createdPuff, 1.5f);
         }
     }
 
