@@ -27,13 +27,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Subir();
-        LimitarVelocidade();
-        Morrer();
+        Thrust();
+        LimitSpeed();
+        Die();
     }
 
     //Mandando o Player subir se o espaço for apertado
-    private void Subir()
+    private void Thrust()
     {
         //Checando se espaço está pressionado
         isSpacePressed = Input.GetKeyDown(KeyCode.Space);
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Limitando a velocidade de queda do Player
-    private void LimitarVelocidade()
+    private void LimitSpeed()
     {
         if (PlayerRB.velocity.y < -playerSpeed)
         {
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Morrer()
+    private void Die()
     {
         //Se o player sair do range da tela, reinicie o jogo
         if (transform.position.y > 5.5f || transform.position.y < -5.5f)

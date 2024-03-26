@@ -25,10 +25,10 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoverObstaculo();
+        MoveObstacle();
     }
 
-    void MoverObstaculo()
+    void MoveObstacle()
     {
         //Determinando que o objeto se mova para a esquerda
         transform.position += Vector3.left * obstacleSpeed * Time.deltaTime;

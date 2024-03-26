@@ -22,23 +22,27 @@ public class GameController : MonoBehaviour
     private int gameLevel = 1;
     [SerializeField] private int pointsToUpLevel = 10;
 
+    private AudioSource levelUpSound;
+
     // Start is called before the first frame update
     void Start()
     {
         //Exibindo level do jogo na tela
         levelDisplay.text = "Level " + gameLevel.ToString();
+
+        levelUpSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CriarMontanhas();
-        AdicionarPontos();
-        AdicionarLevel();
+        CreateMountains();
+        AddPoints();
+        AddLevel();
     }
 
     //Criando montanhas baseado num timer
-    void CriarMontanhas()
+    void CreateMountains()
     {
         //Reduzindo tempo do timer por frame do jogo
         timer -= Time.deltaTime;
@@ -55,7 +59,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void AdicionarPontos()
+    void AddPoints()
     {
         //Adicionando pontos ao jogador por tempo
         points += Time.deltaTime;
@@ -64,7 +68,7 @@ public class GameController : MonoBehaviour
         pointsDisplay.text = "Pontos: " + Mathf.Round(points).ToString();
     }
 
-    void AdicionarLevel()
+    void AddLevel()
     {
         if(points >= pointsToUpLevel)
         {
@@ -76,6 +80,8 @@ public class GameController : MonoBehaviour
 
             //Alterando o level do jogo na tela quando o usuário passa de nível
             levelDisplay.text = "Level " + gameLevel.ToString();
+
+            levelUpSound.Play();
         }
     }
 
