@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private AudioClip levelUpSound;
 
+    //Variável que guarda a posição da câmera
     private Vector3 cameraPosition;
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
         //Exibindo level do jogo na tela
         levelDisplay.text = "Level " + gameLevel.ToString();
 
+        //Pegando a posição da câmera
         cameraPosition = Camera.main.transform.position;
     }
 
@@ -83,6 +85,7 @@ public class GameController : MonoBehaviour
             //Alterando o level do jogo na tela quando o usuário passa de nível
             levelDisplay.text = "Level " + gameLevel.ToString();
 
+            //Tocando o som de levelUp ao passar de nível
             AudioSource.PlayClipAtPoint(levelUpSound, cameraPosition);
         }
     }
