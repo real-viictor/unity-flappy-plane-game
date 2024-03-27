@@ -22,7 +22,9 @@ public class GameController : MonoBehaviour
     private int gameLevel = 1;
     [SerializeField] private int pointsToUpLevel = 10;
 
-    private AudioSource levelUpSound;
+    [SerializeField] private AudioClip levelUpSound;
+
+    private Vector3 cameraPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         //Exibindo level do jogo na tela
         levelDisplay.text = "Level " + gameLevel.ToString();
 
-        levelUpSound = GetComponent<AudioSource>();
+        cameraPosition = Camera.main.transform.position;
     }
 
     // Update is called once per frame
@@ -81,7 +83,7 @@ public class GameController : MonoBehaviour
             //Alterando o level do jogo na tela quando o usuário passa de nível
             levelDisplay.text = "Level " + gameLevel.ToString();
 
-            levelUpSound.Play();
+            AudioSource.PlayClipAtPoint(levelUpSound, cameraPosition);
         }
     }
 
